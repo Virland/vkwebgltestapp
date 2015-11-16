@@ -28,7 +28,9 @@ function InitVK () {
     	VK.api("users.get" , {viewer_id}, function(data) {
     	alert("users.get");
     		if("response" in data) {
-    		alert("responce : " + data.response[0].first_name);
+    			for(var key in data.response[0]) {
+    				alert("responce : " + key);
+    			}
     			SendUserNameToUnity(data.response[0].first_name);
     		}
     	});
