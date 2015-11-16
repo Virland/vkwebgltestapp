@@ -21,6 +21,7 @@ function InitVK () {
 		//VK.addCallback("", function(){});
 			
 		SendMessage ("JSConnector", "VKInit", "");
+		alert("after init");
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
     	VK.api.call("users.get" , {user_ids:viewer_id}, function(data) {
