@@ -24,7 +24,9 @@ function InitVK () {
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
     	VK.api.call("users.get" , {user_ids:viewer_id}, function(data) {
+    	alert("users.get");
     		if("responce" in data) {
+    		alert("responce");
     			SendUserNameToUnity(data.responce[0].first_name);
     		}
     	});
@@ -64,6 +66,7 @@ function HandleOrderCallback(data) {
 }
 
 function SendUserNameToUnity (usr_name) {
+alert("Message");
 	SendMessage ("JSConnector", "SetUserName", usr_name);
 }
 
