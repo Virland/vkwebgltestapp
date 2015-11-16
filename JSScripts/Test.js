@@ -1,4 +1,6 @@
-﻿function InitVK () {
+﻿var user_info;
+
+function InitVK () {
 	VK.init(function() {
 		VK.addCallback("onApplicationAdded", function(){});
 		VK.addCallback("onSettingsChanged", function(){});
@@ -19,6 +21,11 @@
 		//VK.addCallback("", function(){});
 			
 		SendMessage ("JSConnector", "VKInit", "");
+		VK.loadParams(document.location.href);
+    	var viewer_id = VK.params.viewer_id;
+    	VK.api("getProfiles" , {uids:viewer_id}, function(data) {
+    		SendUserNameToUnity(data.responce[0].first_name);
+    	});
 	}, function(){}, 5.40);
 }
 
@@ -31,9 +38,19 @@ function BuyGoldd () {
 	SendMessage ("JSConnector", "GetMoney", 10);
 }
 
+function BuyGoldd () {
+	var orderInfo = {
+		type: "votes",
+		votes: 100
+	};
+	VK.callMethod("showOrderBox", orderInfo);
+	SendMessage ("JSConnector", "GetMoney", 10);
+}
+
 function HandleOrderCallback(data) {
 	if("orderId" in data) {
 		//Success
+		
 		SendMessage ("JSConnector", "ShowPurchaseResult", "Success");
 	} else if("errorCode" in data) {
 		//Error
@@ -44,8 +61,8 @@ function HandleOrderCallback(data) {
 	}
 }
 
-function SendUserNameToUnity () {
-	SendMessage ("JSConnector", "SetUserName", "GAVNO");
+function SendUserNameToUnity (usr_name) {
+	SendMessage ("JSConnector", "SetUserName", usr_name);
 }
 
 alert("VSE RABOTAET");
