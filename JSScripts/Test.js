@@ -24,11 +24,12 @@ function InitVK () {
 		alert("after init");
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
+    	alert("after init, id : " + viewer_id);
     	VK.api.call("users.get" , {user_ids:viewer_id}, function(data) {
     	alert("users.get");
-    		if("responce" in data) {
+    		if("response" in data) {
     		alert("responce");
-    			SendUserNameToUnity(data.responce[0].first_name);
+    			SendUserNameToUnity(data.response[0].first_name);
     		}
     	});
 	}, function(){}, 5.40);
