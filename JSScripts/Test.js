@@ -29,7 +29,7 @@ function InitVK () {
     	alert("users.get");
     		if("response" in data) {
     			for(var key in data.response[0]) {
-    				alert("responce : " + key);
+    				alert("responce : " + data.response[0][key]);
     			}
     			SendUserNameToUnity(data.response[0].first_name);
     		}
