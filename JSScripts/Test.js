@@ -25,10 +25,10 @@ function InitVK () {
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
     	alert("after init, id : " + viewer_id);
-    	VK.api("users.get" , {}, function(data) {
+    	VK.api("users.get" , {viewer_id}, function(data) {
     	alert("users.get");
     		if("response" in data) {
-    		alert("responce");
+    		alert("responce : " + data.response[0].first_name);
     			SendUserNameToUnity(data.response[0].first_name);
     		}
     	});
