@@ -23,8 +23,10 @@ function InitVK () {
 		SendMessage ("JSConnector", "VKInit", "");
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
-    	VK.api("getProfiles" , {uids:viewer_id}, function(data) {
-    		SendUserNameToUnity(data.responce[0].first_name);
+    	VK.api.call("users.get" , {user_ids:viewer_id}, function(data) {
+    		if("responce" in data) {
+    			SendUserNameToUnity(data.responce[0].first_name);
+    		}
     	});
 	}, function(){}, 5.40);
 }
