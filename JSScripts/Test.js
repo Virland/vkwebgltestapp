@@ -25,7 +25,7 @@ function InitVK () {
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
     	alert("after init, id : " + viewer_id);
-    	VK.api.call("users.get" , {user_ids:viewer_id}, function(data) {
+    	VK.api("users.get" , {user_ids: viewer_id}, function(data) {
     	alert("users.get");
     		if("response" in data) {
     		alert("responce");
