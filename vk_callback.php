@@ -1,7 +1,7 @@
 <?php 
 header("Content-Type: application/json; encoding=utf-8"); 
 
-$secret_key = 'hiUl8U4F9q3BcbAl28va'; // Защищенный ключ приложения 
+$secret_key = 'WBMkoAO4k7IHGPR3UdyX'; // Защищенный ключ приложения 
 
 $input = $_POST; 
 
@@ -27,19 +27,12 @@ if ($sig != md5($str.$secret_key)) {
       // Получение информации о товаре 
       $item = $input['item']; // наименование товара 
 
-if ($item == 'item1') { 
+if ($item == 'Gold_100') { 
         $response['response'] = array( 
           'item_id' => 25, 
-          'title' => '300 золотых монет', 
-          'photo_url' => 'http://somesite/images/coin.jpg', 
+          'title' => '100 золотых монет', 
+          'photo_url' => 'http://g01.a.alicdn.com/kf/HTB1r14CIFXXXXc3XpXXq6xXFXXXV/Wholesale-Pillow-Cushion-Cute-Emoji-Funny-Poo-Shit-Shape-Pillow-Stuff-Doll-Novelty-Free-Shipping-2015.jpg_50x50.jpg', 
           'price' => 5 
-        ); 
-      } elseif ($item == 'item2') { 
-        $response['response'] = array( 
-          'item_id' => 27, 
-          'title' => '500 золотых монет', 
-          'photo_url' => 'http://somesite/images/coin.jpg', 
-          'price' => 10 
         ); 
       } else { 
         $response['error'] = array( 

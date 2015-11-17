@@ -40,7 +40,7 @@ function InitVK () {
 function BuyGoldd () {
 	var orderInfo = {
 		type: "item",
-		item: "kusok_gavna"
+		item: "Gold_100"
 	};
 	VK.callMethod("showOrderBox", orderInfo);
 	SendMessage ("JSConnector", "GetMoney", 10);
