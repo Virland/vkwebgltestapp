@@ -72,44 +72,8 @@ function HandleOrderCallback(data) {
 }
 
 function SendUserNameToUnity (usr_name) {
-	alert("Message" + usr_name);
-	var wtf = usr_name;
-	SendMessage ("JSConnector", "SetUserName", usr_name);
+alert("Message");
+	SendMessage ("JSConnector", "SetUserNameJS", usr_name);
 }
 
-function toUTF(string)
-{
-    string = string.replace(/\r\n/g,"\n");
-    var utftext = "",h0,h1,h2;
-    for (var n = 0; n < string.length; n++)
-    {
-        var c = string.charCodeAt(n);
-        if (c < 128)
-        {
-            utftext += String.fromCharCode(c);
-        }
-        else if((c > 127) && (c < 2048))
-            {
-                h1=((c >> 6) | 192).toString(16);
-                if (h1.length==1) h1='0'+h1;
-                h0=((c & 63) | 128).toString(16);
-                if (h0.length==1) h0='0'+h0;
-                utftext += '%'+h1+'%'+h0;
-            }
-            else
-            {
-                h2=((c >> 12) | 224).toString(16);
-                if (h2.length==1) h2='0'+h2;
-                h1=(((c >> 6) & 63) | 128).toString(16);
-                if (h1.length==1) h1='0'+h1;
-                h0=((c & 63) | 128).toString(16);
-                if (h0.length==1) h0='0'+h0;
-                utftext += '%'+h2+'%'+h1+'%'+h0;
-            }
-        }
-    return utftext;
-}
-
-
-
-alert("Script Version : v0.07");
+alert("Script Version : v0.04");
