@@ -56,7 +56,7 @@ function TransferVotes () {
 }
 
 function HandleOrderCallback(data) {
-	if(data !== undefined) {
+	if(data !== undefined && data != 0) {
 		if("orderId" in data) {
 			//Success
 			
