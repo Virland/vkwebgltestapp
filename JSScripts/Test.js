@@ -46,10 +46,10 @@ function BuyGoldd () {
 	SendMessage ("JSConnector", "GetMoney", 10);
 }
 
-function BuyGoldd () {
+function TransferVotes () {
 	var orderInfo = {
 		type: "votes",
-		votes: 100
+		votes: 10
 	};
 	VK.callMethod("showOrderBox", orderInfo);
 	SendMessage ("JSConnector", "GetMoney", 10);
