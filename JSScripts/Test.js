@@ -74,7 +74,7 @@ function HandleOrderCallback(data) {
 function SendUserNameToUnity (usr_name) {
 	alert("Message" + usr_name);
 	var wtf = usr_name;
-	SendMessage ("JSConnector", "SetUserName", toUTF(usr_name));
+	SendMessage ("JSConnector", "SetUserName", usr_name);
 }
 
 function toUTF(string)
