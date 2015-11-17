@@ -56,16 +56,18 @@ function BuyGoldd () {
 }
 
 function HandleOrderCallback(data) {
-	if("orderId" in data) {
-		//Success
-		
-		SendMessage ("JSConnector", "ShowPurchaseResult", "Success");
-	} else if("errorCode" in data) {
-		//Error
-		SendMessage ("JSConnector", "ShowPurchaseResult", "Error : " + data.errorCode);
-	} else {
-		//Cancel
-		SendMessage ("JSConnector", "ShowPurchaseResult", "Canceled");
+	if(data !== undefined) {
+		if("orderId" in data) {
+			//Success
+			
+			SendMessage ("JSConnector", "ShowPurchaseResult", "Success");
+		} else if("errorCode" in data) {
+			//Error
+			SendMessage ("JSConnector", "ShowPurchaseResult", "Error : " + data.errorCode);
+		} else {
+			//Cancel
+			SendMessage ("JSConnector", "ShowPurchaseResult", "Canceled");
+		}
 	}
 }
 
@@ -74,4 +76,4 @@ alert("Message");
 	SendMessage ("JSConnector", "SetUserName", usr_name);
 }
 
-alert("VSE RABOTAET");
+alert("Script Version : v0.01");

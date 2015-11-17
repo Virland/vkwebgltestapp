@@ -49,16 +49,9 @@ case 'get_item_test':
       if ($item == 'item1') { 
         $response['response'] = array( 
           'item_id' => 125, 
-          'title' => '300 золотых монет (тестовый режим)', 
-          'photo_url' => 'http://somesite/images/coin.jpg', 
+          'title' => '100 золотых монет (тестовый режим)', 
+          'photo_url' => 'http://g01.a.alicdn.com/kf/HTB1r14CIFXXXXc3XpXXq6xXFXXXV/Wholesale-Pillow-Cushion-Cute-Emoji-Funny-Poo-Shit-Shape-Pillow-Stuff-Doll-Novelty-Free-Shipping-2015.jpg_50x50.jpg', 
           'price' => 5 
-        ); 
-      } elseif ($item == 'item2') { 
-        $response['response'] = array( 
-          'item_id' => 127, 
-          'title' => '500 золотых монет (тестовый режим)', 
-          'photo_url' => 'http://somesite/images/coin.jpg', 
-          'price' => 10 
         ); 
       } else { 
         $response['error'] = array( 
