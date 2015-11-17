@@ -73,7 +73,7 @@ function HandleOrderCallback(data) {
 
 function SendUserNameToUnity (usr_name) {
 alert("Message");
-	SendMessage ("JSConnector", "SetUserName", usr_name);
+	SendMessage ("JSConnector", "ShowUsername", usr_name);
 }
 
-alert("Script Version : v0.03");
+alert("Script Version : v0.04");
