@@ -76,4 +76,4 @@ alert("Message");
 	SendMessage ("JSConnector", "SetUserName", usr_name);
 }
 
-alert("Script Version : v0.01");
+alert("Script Version : v0.02");
