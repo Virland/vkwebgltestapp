@@ -5,9 +5,9 @@ function InitVK () {
 		VK.addCallback("onApplicationAdded", function(){});
 		VK.addCallback("onSettingsChanged", function(){});
 		VK.addCallback("onBalanceChanged", function(){});
-	    VK.addCallback("onOrderCancel", HandleOrderCallback);
+	    VK.addCallback("onOrderCancel", HandleOrderFail);
 		VK.addCallback("onOrderSuccess", HandleOrderCallback);
-		VK.addCallback("onOrderFail", HandleOrderCallback);
+		VK.addCallback("onOrderFail", HandleOrderFail);
 		VK.addCallback("onProfilePhotoSave", function(){});
 		VK.addCallback("onWallPostSave", function(){});
 		VK.addCallback("onWallPostCancel", function(){});
@@ -55,19 +55,19 @@ function TransferVotes () {
 	SendMessage ("JSConnector", "GetMoney", 10);
 }
 
-function HandleOrderCallback(data) {
-	if(data !== undefined && data != 0) {
-		if("orderId" in data) {
-			//Success
-			
-			SendMessage ("JSConnector", "ShowPurchaseResult", "Success");
-		} else if("errorCode" in data) {
-			//Error
-			SendMessage ("JSConnector", "ShowPurchaseResult", "Error : " + data.errorCode);
-		} else {
-			//Cancel
-			SendMessage ("JSConnector", "ShowPurchaseResult", "Canceled");
-		}
+function HandleOrderSuccess(data) {
+	if(data !== undefined) {
+		SendMessage ("JSConnector", "ShowPurchaseResult", "Success");
+	}
+}
+
+function HandleOrderFail(data) {
+	if(data !== undefined) {
+		//Error
+		SendMessage ("JSConnector", "ShowPurchaseResult", "Error : " + data);
+	} else {
+		//Cancel
+		SendMessage ("JSConnector", "ShowPurchaseResult", "Canceled");
 	}
 }
 
@@ -76,4 +76,4 @@ alert("Message");
 	SendMessage ("JSConnector", "SetUserNameJS", usr_name);
 }
 
-alert("Script Version : v0.04");
+alert("Script Version : v0.08");
