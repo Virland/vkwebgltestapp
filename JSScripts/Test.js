@@ -6,7 +6,7 @@ function InitVK () {
 		VK.addCallback("onSettingsChanged", function(){});
 		VK.addCallback("onBalanceChanged", function(){});
 	    VK.addCallback("onOrderCancel", HandleOrderFail);
-		VK.addCallback("onOrderSuccess", HandleOrderCallback);
+		VK.addCallback("onOrderSuccess", HandleOrderSuccess);
 		VK.addCallback("onOrderFail", HandleOrderFail);
 		VK.addCallback("onProfilePhotoSave", function(){});
 		VK.addCallback("onWallPostSave", function(){});
