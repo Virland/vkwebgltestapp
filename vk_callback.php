@@ -46,7 +46,7 @@ if ($item == 'Gold_100') {
 case 'get_item_test': 
       // Получение информации о товаре в тестовом режиме 
       $item = $input['item']; 
-      if ($item == 'item1') { 
+      if ($item == 'Gold_100') { 
         $response['response'] = array( 
           'item_id' => 125, 
           'title' => '100 золотых монет (тестовый режим)', 

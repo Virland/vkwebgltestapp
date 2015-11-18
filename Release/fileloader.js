@@ -20,8 +20,8 @@ Module.expectedDataFileDownloads++;
     } else {
       throw 'using preloaded data can only be done on a web page or in a web worker';
     }
-    var PACKAGE_NAME = 'TestWebGLBuild.data';
-    var REMOTE_PACKAGE_BASE = 'TestWebGLBuild.data';
+    var PACKAGE_NAME = ' ReleaseVKSlots.data';
+    var REMOTE_PACKAGE_BASE = ' ReleaseVKSlots.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -30,8 +30,8 @@ Module.expectedDataFileDownloads++;
                               Module['locateFile'](REMOTE_PACKAGE_BASE) :
                               ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
   
-      var REMOTE_PACKAGE_SIZE = 4124680;
-      var PACKAGE_UUID = '6b64ecfa-8799-4de6-b08b-89b6388690d2';
+      var REMOTE_PACKAGE_SIZE = 71892954;
+      var PACKAGE_UUID = 'a6aff0d7-691d-47c9-8fcc-c26dddb0acab';
     
     function fetchRemotePackage(packageName, packageSize, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -132,12 +132,17 @@ Module['FS_createPath']('/', 'Resources', true, true);
       },
     };
 
-      new DataRequest(0, 166868, 0, 0).open('GET', '/mainData');
-    new DataRequest(166868, 167012, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
-    new DataRequest(167012, 240832, 0, 0).open('GET', '/sharedassets0.assets');
-    new DataRequest(240832, 1733516, 0, 0).open('GET', '/Il2CppData/Metadata/global-metadata.dat');
-    new DataRequest(1733516, 3620948, 0, 0).open('GET', '/Resources/unity_default_resources');
-    new DataRequest(3620948, 4124680, 0, 0).open('GET', '/Resources/unity_builtin_extra');
+      new DataRequest(0, 49780, 0, 0).open('GET', '/level0');
+    new DataRequest(49780, 116624, 0, 0).open('GET', '/mainData');
+    new DataRequest(116624, 118052, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
+    new DataRequest(118052, 122604, 0, 0).open('GET', '/resources.assets');
+    new DataRequest(122604, 495259, 0, 0).open('GET', '/resources.resource');
+    new DataRequest(495259, 11310655, 0, 0).open('GET', '/sharedassets0.assets');
+    new DataRequest(11310655, 12545074, 0, 0).open('GET', '/sharedassets0.resource');
+    new DataRequest(12545074, 67938278, 0, 0).open('GET', '/sharedassets1.assets');
+    new DataRequest(67938278, 69501790, 0, 0).open('GET', '/Il2CppData/Metadata/global-metadata.dat');
+    new DataRequest(69501790, 71389222, 0, 0).open('GET', '/Resources/unity_default_resources');
+    new DataRequest(71389222, 71892954, 0, 0).open('GET', '/Resources/unity_builtin_extra');
 
     function processPackageData(arrayBuffer) {
       Module.finishedDataFileDownloads++;
@@ -147,16 +152,21 @@ Module['FS_createPath']('/', 'Resources', true, true);
       
       // Reuse the bytearray from the XHR as the source for file reads.
       DataRequest.prototype.byteArray = byteArray;
+          DataRequest.prototype.requests["/level0"].onload();
           DataRequest.prototype.requests["/mainData"].onload();
           DataRequest.prototype.requests["/methods_pointedto_by_uievents.xml"].onload();
+          DataRequest.prototype.requests["/resources.assets"].onload();
+          DataRequest.prototype.requests["/resources.resource"].onload();
           DataRequest.prototype.requests["/sharedassets0.assets"].onload();
+          DataRequest.prototype.requests["/sharedassets0.resource"].onload();
+          DataRequest.prototype.requests["/sharedassets1.assets"].onload();
           DataRequest.prototype.requests["/Il2CppData/Metadata/global-metadata.dat"].onload();
           DataRequest.prototype.requests["/Resources/unity_default_resources"].onload();
           DataRequest.prototype.requests["/Resources/unity_builtin_extra"].onload();
-          Module['removeRunDependency']('datafile_TestWebGLBuild.data');
+          Module['removeRunDependency']('datafile_ ReleaseVKSlots.data');
 
     };
-    Module['addRunDependency']('datafile_TestWebGLBuild.data');
+    Module['addRunDependency']('datafile_ ReleaseVKSlots.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   

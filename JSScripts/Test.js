@@ -6,7 +6,7 @@ function InitVK () {
 		VK.addCallback("onSettingsChanged", function(){});
 		VK.addCallback("onBalanceChanged", function(){});
 	    VK.addCallback("onOrderCancel", HandleOrderFail);
-		VK.addCallback("onOrderSuccess", HandleOrderSuccess);
+		VK.addCallback("onOrderSuccess", HandleOrderCallback);
 		VK.addCallback("onOrderFail", HandleOrderFail);
 		VK.addCallback("onProfilePhotoSave", function(){});
 		VK.addCallback("onWallPostSave", function(){});
@@ -20,43 +20,38 @@ function InitVK () {
 		VK.addCallback("onToggleFlash", function(){});
 		//VK.addCallback("", function(){});
 			
-		SendMessage ("JSConnector", "VKInit", "");
-		alert("after init");
+		SendMessage ("JSConnector", "VKInited", "");
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
-    	alert("after init, id : " + viewer_id);
     	VK.api("users.get" , {viewer_id}, function(data) {
-    	alert("users.get");
     		if("response" in data) {
     			for(var key in data.response[0]) {
-    				alert("responce : " + data.response[0][key]);
+    				//alert("responce : " + data.response[0][key]);
     			}
-    			SendUserNameToUnity(data.response[0].first_name);
     		}
     	});
 	}, function(){}, 5.40);
 }
 
-function BuyGoldd () {
+function BuyItem (item_name) {
 	var orderInfo = {
 		type: "item",
-		item: "Gold_100"
+		item: item_name
 	};
 	VK.callMethod("showOrderBox", orderInfo);
-	SendMessage ("JSConnector", "GetMoney", 10);
 }
 
-function TransferVotes () {
+function TransferVotes (count) {
 	var orderInfo = {
 		type: "votes",
-		votes: 10
+		votes: count
 	};
 	VK.callMethod("showOrderBox", orderInfo);
-	SendMessage ("JSConnector", "GetMoney", 10);
 }
 
 function HandleOrderSuccess(data) {
 	if(data !== undefined) {
+		//Fail
 		SendMessage ("JSConnector", "ShowPurchaseResult", "Success");
 	}
 }
@@ -71,9 +66,4 @@ function HandleOrderFail(data) {
 	}
 }
 
-function SendUserNameToUnity (usr_name) {
-alert("Message");
-	SendMessage ("JSConnector", "SetUserNameJS", usr_name);
-}
-
-alert("Script Version : v0.09");
+//alert("Script Version : v0.09");
