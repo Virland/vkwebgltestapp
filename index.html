@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="TemplateData/style.css">
         <link rel="shortcut icon" href="TemplateData/favicon.ico" />
         <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
-        <script src="JSScripts/Test.js" type="text/javascript"></script>
+        <script src="JSScripts/VKAPIHandler.js" type="text/javascript"></script>
         <script src="TemplateData/UnityProgress.js" type="text/javascript"></script>
     </head>
     <body class="template">
@@ -61,11 +61,11 @@
 <script src="Release/fileloader.js"></script>
 <script>if (!(!Math.fround)) {
   var script = document.createElement('script');
-  script.src = "Release/ ReleaseVKSlots.js";
+  script.src = "Release/ FinalReleaseVKSlots.js";
   document.body.appendChild(script);
 } else {
   var codeXHR = new XMLHttpRequest();
-  codeXHR.open('GET', 'Release/ ReleaseVKSlots.js', true);
+  codeXHR.open('GET', 'Release/ FinalReleaseVKSlots.js', true);
   codeXHR.onload = function() {
     var code = codeXHR.responseText;
     if (!Math.fround) { 
