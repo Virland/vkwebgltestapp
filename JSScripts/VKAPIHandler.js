@@ -1,6 +1,6 @@
 ﻿var user_info;
 
-function InitVK () {
+function Init () {
 	VK.init(function() {
 		VK.addCallback("onApplicationAdded", function(){});
 		VK.addCallback("onSettingsChanged", function(){});
@@ -20,7 +20,7 @@ function InitVK () {
 		VK.addCallback("onToggleFlash", function(){});
 		//VK.addCallback("", function(){});
 			
-		SendMessage ("JSConnector", "VKInited", "");
+		SendMessage ("JSConnector", "Inited", "");
 		VK.loadParams(document.location.href);
     	var viewer_id = VK.params.viewer_id;
     	VK.api("users.get" , {viewer_id}, function(data) {
