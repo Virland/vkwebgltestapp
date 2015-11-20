@@ -1,9 +1,7 @@
 ﻿var user_info;
 
 function Init () {
-alert("tut norm 1");
 	VK.init(function() {
-	alert("tut norm 2");
 		VK.addCallback("onApplicationAdded", function(){});
 		VK.addCallback("onSettingsChanged", function(){});
 		VK.addCallback("onBalanceChanged", function(){});
@@ -36,7 +34,6 @@ alert("tut norm 1");
 }
 
 function BuyItem (item_name) {
-alert("tut norm 3");
 	var orderInfo = {
 		type: "item",
 		item: item_name
@@ -69,4 +66,4 @@ function HandleOrderFail(data) {
 	}
 }
 
-alert("Script Version : v0.10");
+//alert("Script Version : v0.10");
