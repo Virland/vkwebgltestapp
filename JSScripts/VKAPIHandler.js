@@ -69,4 +69,4 @@ function HandleOrderFail(data) {
 	}
 }
 
-//alert("Script Version : v0.09");
+alert("Script Version : v0.10");
